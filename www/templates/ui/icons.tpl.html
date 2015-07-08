@@ -1,0 +1,14 @@
+<ion-view view-title="Icons" ng-controller="IconCtrl">
+    <ion-content>
+        <div class="list">
+            <a ng-repeat="icon in icons" class="item item-icon-left" href="">
+                <i class="icon ion-{{icon.name}}"></i>
+                {{icon.name}}
+            </a>
+            <a class="item item-icon-left" href="">
+                <i class="icon ion-email"></i>
+                email
+            </a>
+        </div>
+    </ion-content>
+</ion-view>

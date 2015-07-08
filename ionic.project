@@ -1,5 +1,5 @@
 {
-  "name": "myApp",
+  "name": "hybridYao",
   "app_id": "",
   "gulpStartupTasks": [
     "sass",
@@ -8,5 +8,11 @@
   "watchPatterns": [
     "www/**/*",
     "!www/lib/**/*"
+  ],
+  "proxies": [
+    {
+      "path": "/MusicYao",
+      "proxyUrl": "http://114.215.109.39:7001/MusicYao"
+    }
   ]
 }

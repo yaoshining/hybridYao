@@ -1,10 +1,25 @@
-<ion-view view-title="MusicYao Player">
-    <ion-content ng-init="num = 1">
-        <button class="button button-large button-assertive" on-tap="num = num + 1">
+<ion-view view-title="MusicYao Player" ng-controller="MusicCtrl">
+    <ion-content>
+        <button class="button button-large button-assertive" on-tap="showModal()">
             button
+
         </button>
-        <button class="button button-energized" onclick="alert(1)">
-            {{num*5}}
+        <button class="button button-energized" on-tap="takePhoto()">
+            Take a photo.
         </button>
+        <button class="button button-balanced" on-tap="pickPicture()">
+            Pick a picture.
+        </button>
+        <img id="myImage" src="" width="100%" />
+        <script id="myModal.html" type="text/ng-template">
+            <div class="modal">
+                <ion-header-bar>
+                    <h1 class="title">我的模型标题</h1>
+                </ion-header-bar>
+                <ion-content>
+                    Hello!
+                </ion-content>
+            </div>
+        </script>
     </ion-content>
 </ion-view>

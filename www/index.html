@@ -7,7 +7,7 @@
 
 
     <!-- compiled css output -->
-    <link href="css/ionic.app.css" rel="stylesheet">
+    <link href="css/app.css" rel="stylesheet">
     <link href="http://cdn.bootcss.com/angular-material/0.10.0-rc4/angular-material.css" rel="stylesheet">
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
@@ -25,20 +25,27 @@
     <script src="config.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded',function(){
-            System.import('app:app').then(function(){
-                angular.bootstrap(angular.element(document.body),['starter']);
+            System.import('app@app').then(function(){
+                angular.bootstrap(angular.element(document.body),['app']);
             });
         });
+        document.addEventListener("deviceready", function(){
+
+        }, false);
     </script>
   </head>
   <body>
     <!--
       The nav bar that will be updated as we navigate between views.
     -->
-    <ion-nav-bar class="bar-calm">
-      <ion-nav-back-button>
-      </ion-nav-back-button>
-    </ion-nav-bar>
+    <!--<ion-nav-bar class="bar-calm">-->
+        <!--<ion-nav-buttons side="left">-->
+            <!--&lt;!&ndash; Toggle left side menu &ndash;&gt;-->
+            <!--<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>-->
+        <!--</ion-nav-buttons>-->
+      <!--<ion-nav-back-button>-->
+      <!--</ion-nav-back-button>-->
+    <!--</ion-nav-bar>-->
     <!--
       The views will be rendered in the <ion-nav-view> directive below
       Templates are in the /templates folder (but you could also

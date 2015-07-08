@@ -1,12 +1,5 @@
-// Ionic Starter App
-
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-// 'starter.services' is found in services.js
-// 'starter.controllers' is found in controllers.js
-define(['app:controllers','app:services'],function(){
-  return angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+define(['controllers@app','services@app','ng-cordova'],function(){
+  return angular.module('app', ['ionic', 'app.controllers', 'app.services','ngCordova'])
 
     .run(function($ionicPlatform) {
       $ionicPlatform.ready(function() {
@@ -23,23 +16,19 @@ define(['app:controllers','app:services'],function(){
     })
 
     .config(function($stateProvider, $urlRouterProvider) {
-
-      // Ionic uses AngularUI Router which uses the concept of states
-      // Learn more here: https://github.com/angular-ui/ui-router
-      // Set up the various states which the app can be in.
-      // Each state's controller can be found in controllers.js
       $stateProvider
-
-        // setup an abstract state for the tabs directive
-          .state('tab', {
-            url: "/tab",
+          .state('app', {
+            url: '',
             abstract: true,
-            templateUrl: "templates/tabs.html"
-          })
-
-        // Each tab has its own nav history stack:
-
-          .state('tab.dash', {
+            templateUrl: 'templates/sidemenus/sidemenus.tpl.html'
+          }).state('app.tabs',{
+            url: '/tabs',
+            views: {
+              'menuContent': {
+                templateUrl: "templates/tabs.html"
+              }
+            }
+          }).state('app.tabs.dash',{
             url: '/dash',
             views: {
               'tab-dash': {
@@ -47,9 +36,7 @@ define(['app:controllers','app:services'],function(){
                 controller: 'DashCtrl'
               }
             }
-          })
-
-          .state('tab.chats', {
+          }).state('app.tabs.chats',{
             url: '/chats',
             views: {
               'tab-chats': {
@@ -57,8 +44,7 @@ define(['app:controllers','app:services'],function(){
                 controller: 'ChatsCtrl'
               }
             }
-          })
-          .state('tab.chat-detail', {
+          }).state('app.tabs.chat-detail',{
             url: '/chats/:chatId',
             views: {
               'tab-chats': {
@@ -66,9 +52,7 @@ define(['app:controllers','app:services'],function(){
                 controller: 'ChatDetailCtrl'
               }
             }
-          })
-
-          .state('tab.account', {
+          }).state('app.tabs.account',{
             url: '/account',
             views: {
               'tab-account': {
@@ -76,17 +60,24 @@ define(['app:controllers','app:services'],function(){
                 controller: 'AccountCtrl'
               }
             }
-          }).state('tab.music', {
+          }).state('app.tabs.music',{
             url: '/music',
             views: {
               'tab-music': {
                 templateUrl: 'templates/tab-music.html'
               }
             }
+          }).state('app.icons',{
+            url: '/icons',
+            views: {
+              'menuContent': {
+                templateUrl: 'templates/ui/icons.tpl.html'
+              }
+            }
           });
 
       // if none of the above states are matched, use this as the fallback
-      $urlRouterProvider.otherwise('/tab/dash');
+      $urlRouterProvider.otherwise('/tabs/dash');
 
     });
 });
